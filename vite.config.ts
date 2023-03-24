@@ -1,9 +1,10 @@
 import { defineConfig, loadEnv, type PluginOption } from 'vite'
 import mock from 'vite-plugin-mockit'
-import htmlTemplate from 'vite-plugin-html-template'
 import tsconfigPaths from 'vite-tsconfig-paths'
 import checker from 'vite-plugin-checker'
 import legacy from '@vitejs/plugin-legacy'
+import vueJsx from '@vitejs/plugin-vue-jsx'
+import { createHtmlPlugin } from 'vite-plugin-html'
 
 export default defineConfig(({ command, mode }) => {
   // 处理NODE_ENV
@@ -15,10 +16,13 @@ export default defineConfig(({ command, mode }) => {
   env.VUE_APP_MODE = process.env.VUE_APP_MODE = mode
 
   const plugins: (PluginOption | PluginOption[])[] = [
+    vueJsx({ enableObjectSlots: false }),
     tsconfigPaths(),
     checker({ typescript: true }),
-    htmlTemplate({
-      data: env,
+    createHtmlPlugin({
+      minify: true,
+      entry: './src/main.ts',
+      template: './public/index.html'
     }),
     legacy({ modernPolyfills: true }),
     mode === 'development' ? mock() : undefined,
@@ -29,6 +33,10 @@ export default defineConfig(({ command, mode }) => {
     plugins,
     css: {
       preprocessorOptions: {
+        less: {
+          javascriptEnabled: true,
+          additionalData: '@root-entry-name: default;',
+        },
       },
       modules: {
         localsConvention: 'camelCaseOnly',

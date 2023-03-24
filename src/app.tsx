@@ -15,7 +15,7 @@ class Routers {
 
 export default defineComponent ({
     setup() {
-        new Routers()
+        const router = new Routers()
     },
     render() {
         return (

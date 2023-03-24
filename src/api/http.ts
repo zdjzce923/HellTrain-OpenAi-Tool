@@ -89,21 +89,7 @@ export const createRequester = (ax: AxiosInstance) => {
 
 // 创建request 对request进行拦截各种操作
 export const openApiRequest = axios.create({
-  baseURL: config.API_EHR_API,
-})
-
-// sug 搜索接口
-export const sugApiRequest = axios.create({
-  baseURL: config.API_SUG_SERVICE,
-})
-
-// 远盟 api
-export const ymApiRequest = axios.create({
-  // baseURL: config.API_YM_SERVICE, // TODO
-  baseURL:
-    'https://dw-dev-api.inclusivehealthlink.com/auth/api/v1/doc/permission', // TODO
+  baseURL: '/',
 })
 
 export const openApi = createRequester(openApiRequest)
-export const sugApi = createRequester(sugApiRequest)
-export const ymApi = createRequester(ymApiRequest)

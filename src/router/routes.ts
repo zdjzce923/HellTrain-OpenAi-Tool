@@ -1,5 +1,5 @@
 import type { RouteRecordRaw } from 'vue-router'
-import jk from '../jk'
+import jk from '../module/home/jk'
 // 自动收集子模块的路由
 let childRoutes: RouteRecordRaw[] = []
 const moduleRoutes = import.meta.glob('../module/**/*.router.ts', {

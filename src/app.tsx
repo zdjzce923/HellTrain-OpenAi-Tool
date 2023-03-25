@@ -13,15 +13,15 @@ class Routers {
   }
 }
 
-export default defineComponent ({
-    setup() {
-        const router = new Routers()
-    },
-    render() {
-        return (
-          <ConfigProvider locale={zhCN}>
-            <RouterView />
-          </ConfigProvider>
-        )
-      }
+export default defineComponent({
+  setup() {
+    const router = new Routers()
+  },
+  render() {
+    return (
+      <ConfigProvider locale={zhCN}>
+        <RouterView />
+      </ConfigProvider>
+    )
+  },
 })

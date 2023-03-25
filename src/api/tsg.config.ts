@@ -5,7 +5,7 @@
 import type { Project } from 'ts-gear'
 import { generateRequestFunctionName } from 'ts-gear/lib/tool/generateRequestFunctionName'
 // @ts-ignore
-import prettier from '../../.prettierrc'
+import prettier from '../../.prettierrc.cjs'
 import upperFirst from 'lodash/upperFirst'
 
 const projects: Project[] = [

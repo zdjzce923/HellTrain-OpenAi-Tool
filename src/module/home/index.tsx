@@ -1,7 +1,8 @@
 import { defineComponent, onBeforeMount, onMounted } from 'vue'
 import Galaxy from './component/galaxy/index'
 
-export default defineComponent({
+const Home = defineComponent({
+  name: 'Home',
   setup() {},
   render() {
     return (
@@ -11,3 +12,5 @@ export default defineComponent({
     )
   },
 })
+
+export default Home

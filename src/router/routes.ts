@@ -1,5 +1,4 @@
 import type { RouteRecordRaw } from 'vue-router'
-import Home from '../module/home'
 // 自动收集子模块的路由
 let childRoutes: RouteRecordRaw[] = []
 const moduleRoutes = import.meta.glob('../module/**/*.router.ts', {
@@ -16,7 +15,7 @@ Object.keys(moduleRoutes)
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    component: Home,
+    redirect: '/home',
     children: childRoutes,
   },
 ]

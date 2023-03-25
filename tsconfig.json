@@ -34,6 +34,6 @@
     "src/**/*.vue",
     "vite.config.ts",
     "global.d.ts",
-    "src/module/home/component/galaxy/index.ts"
+    "src/module/home/component/galaxy/index.tsx"
   ],
 }

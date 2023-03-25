@@ -1,4 +1,4 @@
-uniform float time;
+export default `uniform float time;
 uniform float progress;
 uniform vec3 uColor;
 uniform sampler2D uTexture;
@@ -11,4 +11,4 @@ void main()	{
 	// vec2 newUV = (vUv - vec2(0.5))*resolution.zw + vec2(0.5);
 	vec4 ttt = texture2D(uTexture, vUv);
 	gl_FragColor = vec4(uColor, ttt.r);
-}
+}`

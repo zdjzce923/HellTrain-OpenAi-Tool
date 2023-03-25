@@ -1,17 +1,13 @@
-import { defineComponent } from "vue";
-import Sketch from './component/galaxy/index'
+import { defineComponent, onBeforeMount, onMounted } from 'vue'
+import Galaxy from './component/galaxy/index'
 
-export default defineComponent ({
-  setup() {
-    new Sketch({
-      dom: document.getElementById("container"),
-    });
-    
-  },
+export default defineComponent({
+  setup() {},
   render() {
     return (
-      <div class="w-[100vw]" id="container">
+      <div class="h-[100vh] w-[100vw]">
+        <Galaxy></Galaxy>
       </div>
     )
-  }
+  },
 })

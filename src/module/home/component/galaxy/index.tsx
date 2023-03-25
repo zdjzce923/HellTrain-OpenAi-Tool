@@ -1,22 +1,17 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { lerp } from "three/src/math/MathUtils";
-import fragment from "./shader/fragment.glsl";
-import vertex from "./shader/vertex.glsl";
+import fragment from "./shader/fragment";
+import vertex from "./shader/vertex";
 import GUI from "lil-gui";
-import gsap from "gsap";
-console.log(
-  'fragment', fragment
-)
-
 import particleTexture from "@/assets/home/galaxy/particle.png";
-import { defineComponent } from 'vue';
+import { defineComponent, onMounted } from 'vue';
 
 
 interface SketchTool {
 }
 
-export default class Sketch implements SketchTool {
+export class Sketch implements SketchTool {
   scene: THREE.Scene
   container: any
   width: number
@@ -218,3 +213,16 @@ export default class Sketch implements SketchTool {
     this.renderer.render(this.scene, this.camera);
   }
 }
+
+export default defineComponent({
+  setup() {
+    onMounted(() => {
+      new Sketch({
+        dom: document.getElementById('container'),
+      })
+    })
+  },
+  render() {
+    return <div id="container" class="w-[100%] h-[100%]"></div>
+  }
+})

@@ -1,4 +1,4 @@
-uniform float time;
+export default `uniform float time;
 uniform float size;
 uniform float uAmp;
 uniform vec3 uMouse;
@@ -238,4 +238,4 @@ void main() {
 
   // gl_Position = projectionMatrix * viewMatrix*modelMatrix * vec4( final_pos, 1.0 );
   gl_Position = projectionMatrix * view_pos;
-}
+}`
